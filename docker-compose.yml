@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: mi_contraseña
+      MYSQL_DATABASE: mi_base_de_datos
+    ports:
+      - "3306:3306"
+
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+
+volumes:
+  db_data:

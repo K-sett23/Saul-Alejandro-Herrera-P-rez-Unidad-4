@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Items</title>
+    <style>
+        body {
+            background-color: #006400; /* Verde oscuro */
+            color: #ffffff; /* Texto blanco */
+            font-family: Arial, sans-serif;
+        }
+
+        .form-container {
+            background-color: #2e8b57; /* Verde más claro para destacar el cuadro */
+            padding: 20px;
+            border-radius: 15px; /* Bordes redondeados */
+            width: 300px;
+            margin: 50px auto; /* Centrar el cuadro */
+        }
+
+        input[type="text"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            border-radius: 10px; /* Bordes redondeados para el campo */
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border-radius: 10px;
+            border: none;
+            background-color: #525252; /* Verde para el botón */
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #006400; /* Cambiar color en hover */
+        }
+    </style>
+</head>
+<body>
+    <div style="text-align: center;">
+        <img src="https://utc.edu.mx/wp-content/uploads/2024/03/LOGOUT.png" style="max-width: 80%; height: auto; margin: 20px 0;">
+    </div>
+
+    <h1 style="text-align: center;">Items en la Base de Datos</h1>
+    
+    <!-- Añadir la imagen aquí -->
+    
+    
+    <div class="form-container">
+        <form action="/add" method="post">
+            <input type="text" name="item" placeholder="Nuevo item" required>
+            <button type="submit">Agregar</button>
+        </form>
+    </div>
+
+    <ul style="text-align: center;">
+        {% for item in items %}
+        <li>{{ item[1] }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
